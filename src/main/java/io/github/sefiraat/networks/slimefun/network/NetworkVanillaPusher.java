@@ -1,6 +1,8 @@
 package io.github.sefiraat.networks.slimefun.network;
 
+import com.bgsoftware.wildchests.api.WildChestsAPI;
 import io.github.sefiraat.networks.NetworkStorage;
+import io.github.sefiraat.networks.Networks;
 import io.github.sefiraat.networks.network.NodeDefinition;
 import io.github.sefiraat.networks.network.NodeType;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
@@ -89,25 +91,31 @@ public class NetworkVanillaPusher extends NetworkDirectional {
             return;
         }
 
+        boolean wildChests = Networks.getSupportedPluginManager().isWildChests();
+        boolean isChest = wildChests && WildChestsAPI.getChest(targetBlock.getLocation()) != null;
+
+        sendDebugMessage(block.getLocation(), "WildChests detected: " + wildChests);
+        sendDebugMessage(block.getLocation(), "Block detected as chest: " + isChest);
+
         if (inventory instanceof FurnaceInventory furnace) {
             handleFurnace(stack, furnace);
         } else if (inventory instanceof BrewerInventory brewer) {
             handleBrewingStand(stack, brewer);
+        } else if (wildChests && isChest) {
+            sendDebugMessage(block.getLocation(), "WildChest test failed, escaping");
+            return;
         } else if (InvUtils.fits(holder.getInventory(), stack)) {
+            sendDebugMessage(block.getLocation(), "WildChest test passed.");
             holder.getInventory().addItem(stack);
             stack.setAmount(0);
         }
     }
 
     private void handleFurnace(@Nonnull ItemStack stack, @Nonnull FurnaceInventory furnace) {
-        if (stack.getType().isFuel()
-            && (furnace.getFuel() == null || furnace.getFuel().getType() == Material.AIR)
-        ) {
+        if (stack.getType().isFuel() && (furnace.getFuel() == null || furnace.getFuel().getType() == Material.AIR)) {
             furnace.setFuel(stack.clone());
             stack.setAmount(0);
-        } else if (!stack.getType().isFuel()
-            && (furnace.getSmelting() == null || furnace.getSmelting().getType() == Material.AIR)
-        ) {
+        } else if (!stack.getType().isFuel() && (furnace.getSmelting() == null || furnace.getSmelting().getType() == Material.AIR)) {
             furnace.setSmelting(stack.clone());
             stack.setAmount(0);
         }
@@ -117,6 +125,9 @@ public class NetworkVanillaPusher extends NetworkDirectional {
         if (stack.getType() == Material.BLAZE_POWDER) {
             if (brewer.getFuel() == null || brewer.getFuel().getType() == Material.AIR) {
                 brewer.setFuel(stack.clone());
+                stack.setAmount(0);
+            } else if (brewer.getIngredient() == null || brewer.getIngredient().getType() == Material.AIR) {
+                brewer.setIngredient(stack.clone());
                 stack.setAmount(0);
             }
         } else if (stack.getType() == Material.POTION) {

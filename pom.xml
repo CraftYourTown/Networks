@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.sefiraat</groupId>
     <artifactId>networks</artifactId>
-    <version>CYT_1.1.0</version>
+    <version>MODIFIED</version>
 
     <distributionManagement>
         <repository>
@@ -71,7 +71,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.3.1-SNAPSHOT</version>
+                <version>3.6.0</version>
                 <configuration>
                     <relocations>
                         <relocation>
@@ -124,8 +124,16 @@
             <url>https://jitpack.io</url>
         </repository>
         <repository>
-            <id>jeff-media-public</id>
-            <url>https://hub.jeff-media.com/nexus/repository/jeff-media-public/</url>
+            <id>jeffMediaPublic</id>
+            <url>https://repo.jeff-media.com/public</url>
+        </repository>
+        <repository>
+            <id>mcmmo-repo</id>
+            <url>https://nexus.neetgames.com/repository/maven-public</url>
+        </repository>
+        <repository>
+            <id>bg-repo</id>
+            <url>https://repo.bg-software.com/repository/api/</url>
         </repository>
     </repositories>
 
@@ -140,16 +148,21 @@
         <dependency>
             <groupId>io.github.Slimefun</groupId>
             <artifactId>Slimefun4</artifactId>
-            <version>RC-28</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/Slimefunv4.9-CYT.jar</systemPath>
+            <version>0a7fea8</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>dev.sefiraat</groupId>
+            <artifactId>SefiLib</artifactId>
+            <version>0.2.6</version>
+            <scope>compile</scope>
         </dependency>
 
         <!-- Tools etc. -->
         <dependency>
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit</artifactId>
-            <version>3.0.0</version>
+            <version>3.0.2</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -160,7 +173,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.24</version>
+            <version>1.18.34</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -183,7 +196,24 @@
             <version>8d1af6c570</version>
             <scope>provided</scope>
         </dependency>
-
+        <dependency>
+            <groupId>com.github.schntgaispock</groupId>
+            <artifactId>SlimeHUD</artifactId>
+            <version>1.2.7</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.bgsoftware</groupId>
+            <artifactId>WildChestsAPI</artifactId>
+            <version>2024.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.gmail.nossr50.mcMMO</groupId>
+            <artifactId>mcMMO</artifactId>
+            <version>2.2.017</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
 

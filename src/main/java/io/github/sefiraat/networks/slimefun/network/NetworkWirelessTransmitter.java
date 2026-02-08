@@ -52,8 +52,8 @@ public class NetworkWirelessTransmitter extends NetworkObject {
     private static final String LINKED_LOCATION_KEY_Y = "linked-location-y";
     private static final String LINKED_LOCATION_KEY_Z = "linked-location-z";
 
-    private static final int REQUIRED_POWER = 7500;
-    private static final int TICKS_PER = 5;
+    private static final int REQUIRED_POWER = 500;
+    private static final int TICKS_PER = 2;
 
     private final Map<Location, Location> linkedLocations = new HashMap<>();
 
@@ -200,14 +200,14 @@ public class NetworkWirelessTransmitter extends NetworkObject {
 
             @Override
             public boolean canOpen(@Nonnull Block block, @Nonnull Player player) {
-                return NetworkSlimefunItems.NETWORK_CELL.canUse(player, false)
+                return NetworkSlimefunItems.NETWORK_WIRELESS_TRANSMITTER.canUse(player, false)
                     && Slimefun.getProtectionManager()
                     .hasPermission(player, block.getLocation(), Interaction.INTERACT_BLOCK);
             }
 
             @Override
             public int[] getSlotsAccessedByItemTransport(ItemTransportFlow flow) {
-                return new int[]{0};
+                return new int[0];
             }
 
         };

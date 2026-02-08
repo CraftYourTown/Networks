@@ -378,7 +378,8 @@ public class NetworkQuantumStorage extends SlimefunItem implements DistinctiveIt
     private static boolean isBlacklisted(@Nonnull ItemStack itemStack) {
         return itemStack.getType() == Material.AIR
             || itemStack.getType().getMaxDurability() < 0
-            || Tag.SHULKER_BOXES.isTagged(itemStack.getType());
+            || Tag.SHULKER_BOXES.isTagged(itemStack.getType())
+            || SlimefunItem.getByItem(itemStack) instanceof NetworkQuantumStorage;
     }
 
     @ParametersAreNonnullByDefault
@@ -454,5 +455,10 @@ public class NetworkQuantumStorage extends SlimefunItem implements DistinctiveIt
 
     public static int[] getSizes() {
         return SIZES;
+    }
+
+    @Override
+    public boolean canStack(@Nonnull ItemMeta sfItemMeta, @Nonnull ItemMeta itemMeta) {
+        return sfItemMeta.getPersistentDataContainer().equals(itemMeta.getPersistentDataContainer());
     }
 }
