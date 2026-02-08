@@ -16,4 +16,5 @@ public class GridItemRequest extends ItemRequest {
     public Player getPlayer() {
         return player;
     }
+    
 }

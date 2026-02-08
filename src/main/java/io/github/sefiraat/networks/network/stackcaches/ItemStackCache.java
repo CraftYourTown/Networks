@@ -43,4 +43,5 @@ public class ItemStackCache {
     public Material getItemType() {
         return this.itemStack.getType();
     }
+    
 }

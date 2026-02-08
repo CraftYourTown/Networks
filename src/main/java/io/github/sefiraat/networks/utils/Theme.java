@@ -1,7 +1,7 @@
 package io.github.sefiraat.networks.utils;
 
 import io.github.bakedlibs.dough.items.CustomItemStack;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemDefinition;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemStackFactory;
 import lombok.Getter;
 import net.md_5.bungee.api.ChatColor;
@@ -91,7 +91,7 @@ public enum Theme {
      */
     @Nonnull
     @ParametersAreNonnullByDefault
-    public static SlimefunItemDefinition themedSlimefunItemStack(String id, ItemStack itemStack, Theme themeType, String name, String... lore) {
+    public static SlimefunItemStack themedSlimefunItemStack(String id, ItemStack itemStack, Theme themeType, String name, String... lore) {
         ChatColor passiveColor = Theme.PASSIVE.getColor();
         List<String> finalLore = new ArrayList<>();
         finalLore.add("");
@@ -100,7 +100,7 @@ public enum Theme {
         }
         finalLore.add("");
         finalLore.add(applyThemeToString(Theme.CLICK_INFO, themeType.getLoreLine()));
-        return new SlimefunItemDefinition(
+        return new SlimefunItemStack(
                 id,
                 itemStack,
                 Theme.applyThemeToString(themeType, name),

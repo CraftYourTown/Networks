@@ -27,6 +27,7 @@ import org.bukkit.inventory.meta.TropicalFishBucketMeta;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -132,12 +133,10 @@ public class StackUtils {
     public static boolean canQuickEscapeMetaVariant(@Nonnull ItemStack itemStack, @Nonnull ItemStackCache cache) {
         final ItemMeta metaOne = itemStack.getItemMeta();
         final ItemMeta metaTwo = cache.getItemMeta();
-        
+
         // Damageable (first as everything can be damageable apparently)
         if (metaOne instanceof Damageable instanceOne && metaTwo instanceof Damageable instanceTwo) {
-            if (instanceOne.getDamage() != instanceTwo.getDamage()) {
-                return true;
-            }
+            if (instanceOne.hasDamage() == instanceTwo.hasDamage()) return false;
         }
 
         // Axolotl
@@ -146,7 +145,7 @@ public class StackUtils {
                 return true;
             }
 
-            if(!instanceOne.hasVariant() || !instanceTwo.hasVariant())
+            if (!instanceOne.hasVariant() || !instanceTwo.hasVariant())
                 return true;
 
             if (instanceOne.getVariant() != instanceTwo.getVariant()) {

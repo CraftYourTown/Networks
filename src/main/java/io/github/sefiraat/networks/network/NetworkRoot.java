@@ -6,6 +6,7 @@ import io.github.sefiraat.networks.network.barrel.InfinityBarrel;
 import io.github.sefiraat.networks.network.barrel.NetworkStorage;
 import io.github.sefiraat.networks.network.stackcaches.BarrelIdentity;
 import io.github.sefiraat.networks.network.stackcaches.ItemRequest;
+import io.github.sefiraat.networks.network.stackcaches.ItemStackCache;
 import io.github.sefiraat.networks.network.stackcaches.QuantumCache;
 import io.github.sefiraat.networks.slimefun.network.NetworkDirectional;
 import io.github.sefiraat.networks.slimefun.network.NetworkGreedyBlock;
@@ -22,11 +23,13 @@ import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.block.BlockFace;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -306,7 +309,7 @@ public class NetworkRoot extends NetworkNode {
                             newAmount = currentAmount + itemStack.getAmount();
                         }
                     }
-
+                    
                     itemStacks.put(clone, newAmount);
                 }
             }
@@ -480,15 +483,14 @@ public class NetworkRoot extends NetworkNode {
     public ItemStack getItemStack(@Nonnull ItemRequest request) {
         ItemStack stackToReturn = null;
 
+        if (request.getItemStack() == null) return stackToReturn;
+        
         // Cells first
         for (BlockMenu blockMenu : getCellMenus()) {
             for (ItemStack itemStack : blockMenu.getContents()) {
-                if (itemStack == null
-                    || itemStack.getType() == Material.AIR
-                    || !StackUtils.itemsMatch(request, itemStack, true)
-                ) {
-                    continue;
-                }
+                if (itemStack == null || itemStack.getType() == Material.AIR) continue;
+                if (itemStack.getType() != request.getItemStack().getType()) continue;
+                if (!StackUtils.itemsMatch(request, itemStack, true)) continue;
 
                 // Mark the Cell as dirty otherwise the changes will not save on shutdown
                 blockMenu.markDirty();

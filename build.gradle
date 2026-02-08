@@ -1,0 +1,87 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'com.gradleup.shadow' version '9.3.0'
+}
+
+group = 'io.github.sefiraat'
+version = 'MODIFIED'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+
+    disableAutoTargetJvm()
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+repositories {
+    String repoUsername = System.getProperty("MANGO_STUDIOS_REPO_USERNAME")
+    String repoPassword = System.getProperty("MANGO_STUDIOS_REPO_PASSWORD")
+    
+    mavenCentral()
+    mavenLocal()
+    maven { url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+    maven { url = 'https://jitpack.io' }
+    maven { url = 'https://nexus.neetgames.com/repository/maven-public' }
+    maven { url = 'https://repo.bg-software.com/repository/api/' }
+    maven {
+        url = 'https://repo.mangostudios.uk/repository/internal/'
+        credentials {
+            username repoUsername
+            password repoPassword
+            authentication {
+                basic(BasicAuthentication)
+            }
+        }
+    }
+}
+
+dependencies {
+    /* Core */
+    compileOnly 'org.spigotmc:spigot-api:1.21.11-R0.1-SNAPSHOT'
+    compileOnly 'com.github.slimefun:slimefun4-cyt:4.9-UNOFFICIAL'
+    implementation 'dev.sefiraat:SefiLib:0.2.6'
+
+    /* Tools */
+    implementation 'org.bstats:bstats-bukkit:3.0.2'
+    implementation 'com.jeff-media:MorePersistentDataTypes:2.4.0'
+    implementation 'com.google.code.findbugs:annotations:3.0.1u2'
+    implementation 'org.projectlombok:lombok:1.18.42'
+
+    /* Supported plugins */
+    compileOnly 'io.github.mooy1:InfinityExpansion:90e11bc'
+    compileOnly 'com.github.Sefiraat:Netheopoiesis:8d1af6c570'
+    compileOnly 'com.github.schntgaispock:SlimeHUD:1.2.7'
+    compileOnly 'com.bgsoftware:WildChestsAPI:2024.1'
+    compileOnly 'com.gmail.nossr50.mcMMO:mcMMO:2.2.017'
+}
+
+processResources {
+    filteringCharset = 'UTF-8'
+    inputs.property 'version', project.version
+
+    filesMatching('**/*.*') {
+        expand(project.properties)
+    }
+}
+
+shadowJar {
+    archiveBaseName.set(project.name)
+    archiveVersion.set(project.version.toString())
+    archiveClassifier.set('')
+
+    relocate 'org.bstats', 'io.github.sefiraat.networks.bstats'
+
+    exclude 'META-INF/**'
+}
+
+build {
+    dependsOn shadowJar
+}
