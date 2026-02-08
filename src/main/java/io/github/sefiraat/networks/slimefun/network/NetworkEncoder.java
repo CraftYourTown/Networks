@@ -15,6 +15,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemStackFactory;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
@@ -48,11 +49,11 @@ public class NetworkEncoder extends NetworkObject {
 
     private static final int CHARGE_COST = 20000;
 
-    public static final CustomItemStack BLUEPRINT_BACK_STACK = new CustomItemStack(
+    public static final ItemStack BLUEPRINT_BACK_STACK = ItemStackFactory.create(
         Material.BLUE_STAINED_GLASS_PANE, Theme.PASSIVE + "Blank Blueprint"
     );
 
-    public static final CustomItemStack ENCODE_STACK = new CustomItemStack(
+    public static final ItemStack ENCODE_STACK = ItemStackFactory.create(
         Material.BLUE_STAINED_GLASS_PANE, Theme.PASSIVE + "Click to encode when valid"
     );
 

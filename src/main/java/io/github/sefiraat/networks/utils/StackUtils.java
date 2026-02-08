@@ -77,7 +77,7 @@ public class StackUtils {
         }
 
         // Quick meta-extension escapes
-        if (canQuickEscapeMetaVariant(itemMeta, cachedMeta)) {
+        if (canQuickEscapeMetaVariant(itemStack, cache)) {
             return false;
         }
 
@@ -125,17 +125,14 @@ public class StackUtils {
         }
 
         // Finally, check the display name
-        if (itemMeta.hasDisplayName() && (!itemMeta.getDisplayName().equals(cachedMeta.getDisplayName()))) {
-            return false;
-        }
-
-        // Everything should match if we've managed to get here
-        return true;
+        return !itemMeta.hasDisplayName() || (itemMeta.getDisplayName().equals(cachedMeta.getDisplayName()));
     }
 
 
-    public boolean canQuickEscapeMetaVariant(@Nonnull ItemMeta metaOne, @Nonnull ItemMeta metaTwo) {
-
+    public static boolean canQuickEscapeMetaVariant(@Nonnull ItemStack itemStack, @Nonnull ItemStackCache cache) {
+        final ItemMeta metaOne = itemStack.getItemMeta();
+        final ItemMeta metaTwo = cache.getItemMeta();
+        
         // Damageable (first as everything can be damageable apparently)
         if (metaOne instanceof Damageable instanceOne && metaTwo instanceof Damageable instanceTwo) {
             if (instanceOne.getDamage() != instanceTwo.getDamage()) {
@@ -267,22 +264,24 @@ public class StackUtils {
         }
 
         // Potion
-        if (metaOne instanceof PotionMeta instanceOne && metaTwo instanceof PotionMeta instanceTwo) {
-            if (!instanceOne.getBasePotionData().equals(instanceTwo.getBasePotionData())) {
-                return true;
-            }
-            if (instanceOne.hasCustomEffects() != instanceTwo.hasCustomEffects()) {
-                return true;
-            }
-            if (instanceOne.hasColor() != instanceTwo.hasColor()) {
-                return true;
-            }
-            if (!Objects.equals(instanceOne.getColor(), instanceTwo.getColor())) {
-                return true;
-            }
-            if (!instanceOne.getCustomEffects().equals(instanceTwo.getCustomEffects())) {
-                return true;
-            }
+        if (metaOne instanceof PotionMeta && metaTwo instanceof PotionMeta) {
+            // potions r insanely complicated right now so we're not even going to BOTHER
+            if (!itemStack.isSimilar(cache.getItemStack())) return true;
+//            if (!instanceOne.getBasePotionData().equals(instanceTwo.getBasePotionData())) {
+//                return true;
+//            }
+//            if (instanceOne.hasCustomEffects() != instanceTwo.hasCustomEffects()) {
+//                return true;
+//            }
+//            if (instanceOne.hasColor() != instanceTwo.hasColor()) {
+//                return true;
+//            }
+//            if (!Objects.equals(instanceOne.getColor(), instanceTwo.getColor())) {
+//                return true;
+//            }
+//            if (!instanceOne.getCustomEffects().equals(instanceTwo.getCustomEffects())) {
+//                return true;
+//            }
         }
 
         // Skull
@@ -304,17 +303,19 @@ public class StackUtils {
 
         // Fish Bucket
         if (metaOne instanceof TropicalFishBucketMeta instanceOne && metaTwo instanceof TropicalFishBucketMeta instanceTwo) {
-            if (instanceOne.hasVariant() != instanceTwo.hasVariant()) {
-                return true;
-            }
-            if (!instanceOne.getPattern().equals(instanceTwo.getPattern())) {
-                return true;
-            }
-            if (!instanceOne.getBodyColor().equals(instanceTwo.getBodyColor())) {
-                return true;
-            }
-            if (!instanceOne.getPatternColor().equals(instanceTwo.getPatternColor())) {
-                return true;
+            if (instanceOne.hasVariant()) {
+                if (!instanceTwo.hasVariant()) {
+                    return true;
+                }
+                if (!instanceOne.getPattern().equals(instanceTwo.getPattern())) {
+                    return true;
+                }
+                if (!instanceOne.getBodyColor().equals(instanceTwo.getBodyColor())) {
+                    return true;
+                }
+                if (!instanceOne.getPatternColor().equals(instanceTwo.getPatternColor())) {
+                    return true;
+                }
             }
         }
 

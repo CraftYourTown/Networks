@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.github.sefiraat</groupId>
   <artifactId>networks</artifactId>
-  <version>CYT_1.1.0</version>
+  <version>MODIFIED</version>
   <build>
     <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
     <defaultGoal>clean package</defaultGoal>
@@ -21,7 +21,7 @@
     <plugins>
       <plugin>
         <artifactId>maven-shade-plugin</artifactId>
-        <version>3.3.1-SNAPSHOT</version>
+        <version>3.6.0</version>
         <executions>
           <execution>
             <phase>package</phase>
@@ -59,8 +59,16 @@
       <url>https://jitpack.io</url>
     </repository>
     <repository>
-      <id>jeff-media-public</id>
-      <url>https://hub.jeff-media.com/nexus/repository/jeff-media-public/</url>
+      <id>jeffMediaPublic</id>
+      <url>https://repo.jeff-media.com/public</url>
+    </repository>
+    <repository>
+      <id>mcmmo-repo</id>
+      <url>https://nexus.neetgames.com/repository/maven-public</url>
+    </repository>
+    <repository>
+      <id>bg-repo</id>
+      <url>https://repo.bg-software.com/repository/api/</url>
     </repository>
   </repositories>
   <pluginRepositories>
@@ -87,13 +95,19 @@
     <dependency>
       <groupId>org.spigotmc</groupId>
       <artifactId>spigot-api</artifactId>
-      <version>1.19-R0.1-SNAPSHOT</version>
+      <version>1.21.11-R0.1-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.github.Slimefun-United</groupId>
+      <artifactId>Slimefun-United</artifactId>
+      <version>21b9000a4f</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.18.24</version>
+      <version>1.18.34</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -109,11 +123,22 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>io.github.Slimefun</groupId>
-      <artifactId>Slimefun4</artifactId>
-      <version>RC-28</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/libs/Slimefunv4.9-CYT.jar</systemPath>
+      <groupId>com.github.schntgaispock</groupId>
+      <artifactId>SlimeHUD</artifactId>
+      <version>1.2.7</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.bgsoftware</groupId>
+      <artifactId>WildChestsAPI</artifactId>
+      <version>2024.1</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.gmail.nossr50.mcMMO</groupId>
+      <artifactId>mcMMO</artifactId>
+      <version>2.2.017</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
   <distributionManagement>
@@ -130,17 +155,17 @@
   </distributionManagement>
   <properties>
     <sonar.issue.ignore.multicriteria.e3.ruleKey>java:S2245</sonar.issue.ignore.multicriteria.e3.ruleKey>
-    <sonar.issue.ignore.multicriteria.e3.resourceKey>**</sonar.issue.ignore.multicriteria.e3.resourceKey>
     <sonar.issue.ignore.multicriteria>e1,e2,e3</sonar.issue.ignore.multicriteria>
-    <maven.compiler.source>16</maven.compiler.source>
     <sonar.issue.ignore.multicriteria.e2.ruleKey>java:S125</sonar.issue.ignore.multicriteria.e2.ruleKey>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-    <sonar.organization>sefiraat</sonar.organization>
-    <sonar.projectKey>Networks</sonar.projectKey>
-    <maven.compiler.target>16</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <sonar.issue.ignore.multicriteria.e1.resourceKey>**</sonar.issue.ignore.multicriteria.e1.resourceKey>
     <sonar.issue.ignore.multicriteria.e2.resourceKey>**</sonar.issue.ignore.multicriteria.e2.resourceKey>
     <sonar.issue.ignore.multicriteria.e1.ruleKey>java:S6212</sonar.issue.ignore.multicriteria.e1.ruleKey>
+    <sonar.issue.ignore.multicriteria.e3.resourceKey>**</sonar.issue.ignore.multicriteria.e3.resourceKey>
+    <maven.compiler.source>21</maven.compiler.source>
+    <sonar.organization>sefiraat</sonar.organization>
+    <sonar.projectKey>Networks</sonar.projectKey>
+    <maven.compiler.target>21</maven.compiler.target>
   </properties>
 </project>

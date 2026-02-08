@@ -3,6 +3,7 @@ package io.github.sefiraat.networks.slimefun;
 import io.github.sefiraat.networks.slimefun.network.NetworkQuantumStorage;
 import io.github.sefiraat.networks.slimefun.tools.NetworkRemote;
 import io.github.sefiraat.networks.utils.Theme;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemDefinition;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import lombok.experimental.UtilityClass;
@@ -24,73 +25,73 @@ import java.text.MessageFormat;
 public class NetworksSlimefunItemStacks {
 
     // Materials
-    public static final SlimefunItemStack SYNTHETIC_EMERALD_SHARD;
-    public static final SlimefunItemStack OPTIC_GLASS;
-    public static final SlimefunItemStack OPTIC_CABLE;
-    public static final SlimefunItemStack OPTIC_STAR;
-    public static final SlimefunItemStack RADIOACTIVE_OPTIC_STAR;
-    public static final SlimefunItemStack SHRINKING_BASE;
-    public static final SlimefunItemStack SIMPLE_NANOBOTS;
-    public static final SlimefunItemStack ADVANCED_NANOBOTS;
-    public static final SlimefunItemStack AI_CORE;
-    public static final SlimefunItemStack EMPOWERED_AI_CORE;
-    public static final SlimefunItemStack PRISTINE_AI_CORE;
-    public static final SlimefunItemStack INTERDIMENSIONAL_PRESENCE;
+    public static final SlimefunItemDefinition SYNTHETIC_EMERALD_SHARD;
+    public static final SlimefunItemDefinition OPTIC_GLASS;
+    public static final SlimefunItemDefinition OPTIC_CABLE;
+    public static final SlimefunItemDefinition OPTIC_STAR;
+    public static final SlimefunItemDefinition RADIOACTIVE_OPTIC_STAR;
+    public static final SlimefunItemDefinition SHRINKING_BASE;
+    public static final SlimefunItemDefinition SIMPLE_NANOBOTS;
+    public static final SlimefunItemDefinition ADVANCED_NANOBOTS;
+    public static final SlimefunItemDefinition AI_CORE;
+    public static final SlimefunItemDefinition EMPOWERED_AI_CORE;
+    public static final SlimefunItemDefinition PRISTINE_AI_CORE;
+    public static final SlimefunItemDefinition INTERDIMENSIONAL_PRESENCE;
 
     // Network Items
-    public static final SlimefunItemStack NETWORK_CONTROLLER;
-    public static final SlimefunItemStack NETWORK_BRIDGE;
-    public static final SlimefunItemStack NETWORK_MONITOR;
-    public static final SlimefunItemStack NETWORK_IMPORT;
-    public static final SlimefunItemStack NETWORK_EXPORT;
-    public static final SlimefunItemStack NETWORK_GRABBER;
-    public static final SlimefunItemStack NETWORK_PUSHER;
-    public static final SlimefunItemStack NETWORK_CONTROL_X;
-    public static final SlimefunItemStack NETWORK_CONTROL_V;
-    public static final SlimefunItemStack NETWORK_VACUUM;
-    public static final SlimefunItemStack NETWORK_VANILLA_GRABBER;
-    public static final SlimefunItemStack NETWORK_VANILLA_PUSHER;
-    public static final SlimefunItemStack NETWORK_WIRELESS_TRANSMITTER;
-    public static final SlimefunItemStack NETWORK_WIRELESS_RECEIVER;
-    public static final SlimefunItemStack NETWORK_PURGER;
-    public static final SlimefunItemStack NETWORK_GRID;
-    public static final SlimefunItemStack NETWORK_CRAFTING_GRID;
-    public static final SlimefunItemStack NETWORK_CELL;
-    public static final SlimefunItemStack NETWORK_GREEDY_BLOCK;
-    public static final SlimefunItemStack NETWORK_QUANTUM_WORKBENCH;
-    public static final SlimefunItemStack NETWORK_QUANTUM_STORAGE_1;
-    public static final SlimefunItemStack NETWORK_QUANTUM_STORAGE_2;
-    public static final SlimefunItemStack NETWORK_QUANTUM_STORAGE_3;
-    public static final SlimefunItemStack NETWORK_QUANTUM_STORAGE_4;
-    public static final SlimefunItemStack NETWORK_QUANTUM_STORAGE_5;
-    public static final SlimefunItemStack NETWORK_QUANTUM_STORAGE_6;
-    public static final SlimefunItemStack NETWORK_QUANTUM_STORAGE_7;
-    public static final SlimefunItemStack NETWORK_QUANTUM_STORAGE_8;
-    public static final SlimefunItemStack NETWORK_CAPACITOR_1;
-    public static final SlimefunItemStack NETWORK_CAPACITOR_2;
-    public static final SlimefunItemStack NETWORK_CAPACITOR_3;
-    public static final SlimefunItemStack NETWORK_CAPACITOR_4;
-    public static final SlimefunItemStack NETWORK_POWER_OUTLET_1;
-    public static final SlimefunItemStack NETWORK_POWER_OUTLET_2;
-    public static final SlimefunItemStack NETWORK_POWER_DISPLAY;
-    public static final SlimefunItemStack NETWORK_RECIPE_ENCODER;
-    public static final SlimefunItemStack NETWORK_AUTO_CRAFTER;
-    public static final SlimefunItemStack NETWORK_AUTO_CRAFTER_WITHHOLDING;
+    public static final SlimefunItemDefinition NETWORK_CONTROLLER;
+    public static final SlimefunItemDefinition NETWORK_BRIDGE;
+    public static final SlimefunItemDefinition NETWORK_MONITOR;
+    public static final SlimefunItemDefinition NETWORK_IMPORT;
+    public static final SlimefunItemDefinition NETWORK_EXPORT;
+    public static final SlimefunItemDefinition NETWORK_GRABBER;
+    public static final SlimefunItemDefinition NETWORK_PUSHER;
+    public static final SlimefunItemDefinition NETWORK_CONTROL_X;
+    public static final SlimefunItemDefinition NETWORK_CONTROL_V;
+    public static final SlimefunItemDefinition NETWORK_VACUUM;
+    public static final SlimefunItemDefinition NETWORK_VANILLA_GRABBER;
+    public static final SlimefunItemDefinition NETWORK_VANILLA_PUSHER;
+    public static final SlimefunItemDefinition NETWORK_WIRELESS_TRANSMITTER;
+    public static final SlimefunItemDefinition NETWORK_WIRELESS_RECEIVER;
+    public static final SlimefunItemDefinition NETWORK_PURGER;
+    public static final SlimefunItemDefinition NETWORK_GRID;
+    public static final SlimefunItemDefinition NETWORK_CRAFTING_GRID;
+    public static final SlimefunItemDefinition NETWORK_CELL;
+    public static final SlimefunItemDefinition NETWORK_GREEDY_BLOCK;
+    public static final SlimefunItemDefinition NETWORK_QUANTUM_WORKBENCH;
+    public static final SlimefunItemDefinition NETWORK_QUANTUM_STORAGE_1;
+    public static final SlimefunItemDefinition NETWORK_QUANTUM_STORAGE_2;
+    public static final SlimefunItemDefinition NETWORK_QUANTUM_STORAGE_3;
+    public static final SlimefunItemDefinition NETWORK_QUANTUM_STORAGE_4;
+    public static final SlimefunItemDefinition NETWORK_QUANTUM_STORAGE_5;
+    public static final SlimefunItemDefinition NETWORK_QUANTUM_STORAGE_6;
+    public static final SlimefunItemDefinition NETWORK_QUANTUM_STORAGE_7;
+    public static final SlimefunItemDefinition NETWORK_QUANTUM_STORAGE_8;
+    public static final SlimefunItemDefinition NETWORK_CAPACITOR_1;
+    public static final SlimefunItemDefinition NETWORK_CAPACITOR_2;
+    public static final SlimefunItemDefinition NETWORK_CAPACITOR_3;
+    public static final SlimefunItemDefinition NETWORK_CAPACITOR_4;
+    public static final SlimefunItemDefinition NETWORK_POWER_OUTLET_1;
+    public static final SlimefunItemDefinition NETWORK_POWER_OUTLET_2;
+    public static final SlimefunItemDefinition NETWORK_POWER_DISPLAY;
+    public static final SlimefunItemDefinition NETWORK_RECIPE_ENCODER;
+    public static final SlimefunItemDefinition NETWORK_AUTO_CRAFTER;
+    public static final SlimefunItemDefinition NETWORK_AUTO_CRAFTER_WITHHOLDING;
 
     // Tools
-    public static final SlimefunItemStack CRAFTING_BLUEPRINT;
-    public static final SlimefunItemStack NETWORK_PROBE;
-    public static final SlimefunItemStack NETWORK_REMOTE;
-    public static final SlimefunItemStack NETWORK_REMOTE_EMPOWERED;
-    public static final SlimefunItemStack NETWORK_REMOTE_PRISTINE;
-    public static final SlimefunItemStack NETWORK_REMOTE_ULTIMATE;
-    public static final SlimefunItemStack NETWORK_CRAYON;
-    public static final SlimefunItemStack NETWORK_CONFIGURATOR;
-    public static final SlimefunItemStack NETWORK_WIRELESS_CONFIGURATOR;
-    public static final SlimefunItemStack NETWORK_RAKE_1;
-    public static final SlimefunItemStack NETWORK_RAKE_2;
-    public static final SlimefunItemStack NETWORK_RAKE_3;
-    public static final SlimefunItemStack NETWORK_DEBUG_STICK;
+    public static final SlimefunItemDefinition CRAFTING_BLUEPRINT;
+    public static final SlimefunItemDefinition NETWORK_PROBE;
+    public static final SlimefunItemDefinition NETWORK_REMOTE;
+    public static final SlimefunItemDefinition NETWORK_REMOTE_EMPOWERED;
+    public static final SlimefunItemDefinition NETWORK_REMOTE_PRISTINE;
+    public static final SlimefunItemDefinition NETWORK_REMOTE_ULTIMATE;
+    public static final SlimefunItemDefinition NETWORK_CRAYON;
+    public static final SlimefunItemDefinition NETWORK_CONFIGURATOR;
+    public static final SlimefunItemDefinition NETWORK_WIRELESS_CONFIGURATOR;
+    public static final SlimefunItemDefinition NETWORK_RAKE_1;
+    public static final SlimefunItemDefinition NETWORK_RAKE_2;
+    public static final SlimefunItemDefinition NETWORK_RAKE_3;
+    public static final SlimefunItemDefinition NETWORK_DEBUG_STICK;
 
     static {
 
@@ -133,7 +134,7 @@ public class NetworksSlimefunItemStacks {
 
         RADIOACTIVE_OPTIC_STAR = Theme.themedSlimefunItemStack(
             "NTW_RADIOACTIVE_OPTIC_STAR",
-            getPreEnchantedItemStack(Material.NETHER_STAR, true, new Pair<>(Enchantment.ARROW_DAMAGE, 1)),
+            getPreEnchantedItemStack(Material.NETHER_STAR, true, new Pair<>(Enchantment.POWER, 1)),
             Theme.CRAFTING,
             "Radioactive Optic Star",
             "A crystalline star structure that",
@@ -142,7 +143,7 @@ public class NetworksSlimefunItemStacks {
 
         SHRINKING_BASE = Theme.themedSlimefunItemStack(
             "NTW_SHRINKING_BASE",
-            getPreEnchantedItemStack(Material.PISTON, true, new Pair<>(Enchantment.ARROW_DAMAGE, 1)),
+            getPreEnchantedItemStack(Material.PISTON, true, new Pair<>(Enchantment.POWER, 1)),
             Theme.CRAFTING,
             "Shrinking Base",
             "An advanced construct able to make",
@@ -160,7 +161,7 @@ public class NetworksSlimefunItemStacks {
 
         ADVANCED_NANOBOTS = Theme.themedSlimefunItemStack(
             "NTW_ADVANCED_NANOBOTS",
-            getPreEnchantedItemStack(Material.MELON_SEEDS, true, new Pair<>(Enchantment.ARROW_DAMAGE, 1)),
+            getPreEnchantedItemStack(Material.MELON_SEEDS, true, new Pair<>(Enchantment.POWER, 1)),
             Theme.CRAFTING,
             "Advanced Nanobots",
             "Teeny Tiny little bots that can",
@@ -188,7 +189,7 @@ public class NetworksSlimefunItemStacks {
 
         PRISTINE_AI_CORE = Theme.themedSlimefunItemStack(
             "NTW_PRISTINE_AI_CORE",
-            getPreEnchantedItemStack(Material.TUBE_CORAL_BLOCK, true, new Pair<>(Enchantment.ARROW_DAMAGE, 1)),
+            getPreEnchantedItemStack(Material.TUBE_CORAL_BLOCK, true, new Pair<>(Enchantment.POWER, 1)),
             Theme.CRAFTING,
             "Pristine A.I. Core",
             "A perfected artificial intelligence",
@@ -197,7 +198,7 @@ public class NetworksSlimefunItemStacks {
 
         INTERDIMENSIONAL_PRESENCE = Theme.themedSlimefunItemStack(
             "NTW_INTERDIMENSIONAL_PRESENCE",
-            getPreEnchantedItemStack(Material.ARMOR_STAND, true, new Pair<>(Enchantment.ARROW_DAMAGE, 1)),
+            getPreEnchantedItemStack(Material.ARMOR_STAND, true, new Pair<>(Enchantment.POWER, 1)),
             Theme.CRAFTING,
             "Interdimensional Presence",
             "An artificial intelligence that has",
@@ -714,7 +715,7 @@ public class NetworksSlimefunItemStacks {
 
         NETWORK_REMOTE_ULTIMATE = Theme.themedSlimefunItemStack(
             "NTW_REMOTE_ULTIMATE",
-            getPreEnchantedItemStack(Material.GLOW_ITEM_FRAME, true, new Pair<>(Enchantment.ARROW_DAMAGE, 1)),
+            getPreEnchantedItemStack(Material.GLOW_ITEM_FRAME, true, new Pair<>(Enchantment.POWER, 1)),
             Theme.TOOL,
             "Network Remote Ultimate",
             "Opens a bound grid wirelessly.",
@@ -782,7 +783,7 @@ public class NetworksSlimefunItemStacks {
 
         NETWORK_RAKE_3 = Theme.themedSlimefunItemStack(
             "NTW_RAKE_3",
-            getPreEnchantedItemStack(Material.WEEPING_VINES, true, new Pair<>(Enchantment.LUCK, 1)),
+            getPreEnchantedItemStack(Material.WEEPING_VINES, true, new Pair<>(Enchantment.LUCK_OF_THE_SEA, 1)),
             Theme.TOOL,
             "Network Rake (3)",
             "Right click a Network Object to",
@@ -793,7 +794,7 @@ public class NetworksSlimefunItemStacks {
 
         NETWORK_DEBUG_STICK = Theme.themedSlimefunItemStack(
             "NTW_DEBUG_STICK",
-            getPreEnchantedItemStack(Material.STICK, true, new Pair<>(Enchantment.LUCK, 1)),
+            getPreEnchantedItemStack(Material.STICK, true, new Pair<>(Enchantment.LUCK_OF_THE_SEA, 1)),
             Theme.TOOL,
             "Network Debug Stick",
             "Right click a Network Object to",

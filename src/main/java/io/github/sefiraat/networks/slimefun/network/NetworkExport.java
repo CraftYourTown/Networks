@@ -14,7 +14,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.settings.IntRangeSetting;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockBreakHandler;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemStackFactory;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.Slimefun.Objects.handlers.BlockTicker;
@@ -39,12 +39,12 @@ public class NetworkExport extends NetworkObject {
     private static final int OUTPUT_ITEM_SLOT = 24;
     private static final int[] OUTPUT_ITEM_BACKDROP = {14, 15, 16, 23, 25, 32, 33, 34};
 
-    private static final CustomItemStack TEST_BACKDROP_STACK = new CustomItemStack(
+    private static final ItemStack TEST_BACKDROP_STACK = ItemStackFactory.create(
         Material.GREEN_STAINED_GLASS_PANE,
         Theme.SUCCESS + "Export Item Matching"
     );
 
-    private static final CustomItemStack OUTPUT_BACKDROP_STACK = new CustomItemStack(
+    private static final ItemStack OUTPUT_BACKDROP_STACK = ItemStackFactory.create(
         Material.ORANGE_STAINED_GLASS_PANE,
         Theme.SUCCESS + "Output Slot"
     );
@@ -55,7 +55,7 @@ public class NetworkExport extends NetworkObject {
         super(itemGroup, item, recipeType, recipe, NodeType.EXPORT);
         this.tickRate = new IntRangeSetting(this, "tick_rate", 1, 1, 10);
         addItemSetting(this.tickRate);
-
+        
         this.getSlotsToDrop().add(TEST_ITEM_SLOT);
         this.getSlotsToDrop().add(OUTPUT_ITEM_SLOT);
 
